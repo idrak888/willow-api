@@ -131,7 +131,7 @@ app.delete("/user/:id", (req, res) => {
 });
 
 app.delete("/posts", (req, res) => {
-	User.find().remove().then(doc => {
+	Post.find().remove().then(doc => {
 		res.send(doc);
 	}).catch(e => {
 		res.send(e);
