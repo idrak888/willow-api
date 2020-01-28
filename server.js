@@ -86,7 +86,6 @@ app.post('/post/like/:id', (req, res) => {
 
 app.post("/post", (req, res) => {
 	var NewPost = new Post({
-        _id: req.body.uid,
         by: req.body.by,
         datePosted: req.body.datePosted,
 		starter: req.body.starter,
