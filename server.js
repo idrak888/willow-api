@@ -119,7 +119,7 @@ app.post('/starters', (req, res) => {
 	NewStarter.save().then((doc) => {
 		res.send(doc);
 	}).catch(e => {
-        res.send();
+        res.send(e);
     });
 });
 

@@ -1,10 +1,8 @@
 const {mongoose} = require('./mongoose');
-var Schema = mongoose.Schema;
 
-const StarterSchema = new Schema({
+const Starter = mongoose.model('Starter', {
     text: String
-}, {_id: false}); 
-const Starter = mongoose.model('Starter', StarterSchema);
+});
 
 module.exports = {
 	Starter
