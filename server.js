@@ -29,7 +29,7 @@ app.get("/user", (req, res) => {
     }).catch(e => {
 		res.send(e);
 	});
-});b
+});
 
 app.get("/user/:id", (req, res) => {
 	var _id = req.params.id;
