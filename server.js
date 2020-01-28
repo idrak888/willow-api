@@ -62,7 +62,7 @@ app.get('/posts/:username', (req, res) => {
 app.post("/user", (req, res) => {
 	var NewUser = new User({
         _id: req.body.uid,
-	username: req.body.name,
+	username: req.body.username,
         email: req.body.email,
         posts: []
 	});
