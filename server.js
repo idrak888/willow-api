@@ -29,7 +29,7 @@ app.get("/user", (req, res) => {
     }).catch(e => {
 		res.send(e);
 	});
-});
+});b
 
 app.get("/user/:id", (req, res) => {
 	var _id = req.params.id;
@@ -91,7 +91,8 @@ app.post("/post", (req, res) => {
         _id: req.body.uid,
         by: req.body.by,
         datePosted: req.body.datePosted,
-        starter: req.body.starter,
+		starter: req.body.starter,
+		content: req.body.content,
         likes: []
 	});
 
