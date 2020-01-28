@@ -41,10 +41,8 @@ app.get("/user/:id", (req, res) => {
 	});
 });
 
-app.get("/post/:limit", (req, res) => {
-	var limit = req.params.limit;
-
-	Post.find().limit(parseInt(limit)).then(doc => {
+app.get("/posts", (req, res) => {
+	Post.find().then(doc => {
         res.send(doc);
     }).catch(e => {
 		res.send(e);
