@@ -75,7 +75,7 @@ app.post("/user", (req, res) => {
     });
 });
 
-app.post("/notication/:username", (req, res) => {
+app.post("/notification/:username", (req, res) => {
 	var username = req.params.username;
 	
 	User.findOneAndUpdate({ username }, { $push: { notifications:req.body.notification } }).then(doc => {
