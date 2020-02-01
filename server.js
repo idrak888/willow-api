@@ -85,6 +85,16 @@ app.post("/notification/:username", (req, res) => {
 	});
 });
 
+app.post("/clear-notifications/:username", (req, res) => {
+	var username = req.params.username;
+	
+	User.findOneAndUpdate({ username }, { notifications:[] }).then(doc => {
+        	res.send(doc);
+	}).catch(e => {
+		res.send(e);
+	});
+});
+
 app.post('/post/like/:id', (req, res) => {
     var _id = req.params.id;
 
