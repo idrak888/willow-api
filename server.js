@@ -64,7 +64,8 @@ app.post("/user", (req, res) => {
         _id: req.body.uid,
 	username: req.body.username,
         email: req.body.email,
-        posts: []
+        posts: [],
+	notifications: []
 	});
 
 	NewUser.save().then((doc) => {
@@ -74,10 +75,21 @@ app.post("/user", (req, res) => {
     });
 });
 
+app.post("/notication/username", (req, res) => {
+	var username = req.params.username;
+	
+	User.findOneAndUpdate({ username }, { $unshift: { notifications:req.body.notification } }).then(doc => {
+        res.send(doc);
+	    }).catch(e => {
+		res.send(e);
+	    });
+	 });
+});
+
 app.post('/post/like/:id', (req, res) => {
     var _id = req.params.id;
 
-    Post.findOneAndUpdate({ _id }, { $push: { likes:req.body.username } }).then(doc => {
+    Post.findOneAndUpdate({ _id }, { $unshift: { likes:req.body.username } }).then(doc => {
         res.send(doc);
     }).catch(e => {
         res.send(e);
