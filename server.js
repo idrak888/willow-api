@@ -79,11 +79,10 @@ app.post("/notication/:username", (req, res) => {
 	var username = req.params.username;
 	
 	User.findOneAndUpdate({ username }, { $push: { notifications:req.body.notification } }).then(doc => {
-        res.send(doc);
-	    }).catch(e => {
+        	res.send(doc);
+	}).catch(e => {
 		res.send(e);
-	    });
-	 });
+	});
 });
 
 app.post('/post/like/:id', (req, res) => {
